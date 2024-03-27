@@ -30,7 +30,7 @@
 
     function updatedeeplink() {
       var encodedWebUrl = encodeURIComponent('https://tasklist.example.com/123/456&label=Task 456');
-      var subEntityIdvalue = document.getElementById('subEntityId').value;
+      var subEntityIdvalue = document.getElementById('specifysubentityid').value;
       var encodedContext = encodeURIComponent(JSON.stringify({"subEntityId": subEntityIdvalue}));
           var appid = document.getElementById('appid').value;
           if (!appid) {
@@ -50,7 +50,7 @@
 
     function opendeeplink() {
       var encodedWebUrl = encodeURIComponent('https://tasklist.example.com/123/456&label=Task 456');
-      var subEntityIdvalue = document.getElementById('subEntityId').value;
+      var subEntityIdvalue = document.getElementById('specifysubentityid').value;
       var encodedContext = encodeURIComponent(JSON.stringify({"subEntityId": subEntityIdvalue}));
       var appid = document.getElementById('appid').value;
       if (!appid) {
