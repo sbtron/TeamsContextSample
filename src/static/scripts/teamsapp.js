@@ -11,6 +11,7 @@
     microsoftTeams.getContext((context) => {
       updatev1(context.entityId, context.subEntityId);
     });
+    updatedeeplink();
   });
 
   function updatev2(hubName, pageid, subpageid) {
@@ -45,7 +46,7 @@
           document.getElementById('deeplink').appendChild(a);
           }
     }
-    module.exports = updatedeeplink;
+    window.updatedeeplink = updatedeeplink;
 
     function opendeeplink() {
       var encodedWebUrl = encodeURIComponent('https://tasklist.example.com/123/456&label=Task 456');
@@ -59,6 +60,6 @@
       var taskItemUrl = 'https://teams.microsoft.com/l/entity/' + appid + '/index0?webUrl=' + encodedWebUrl + '&context=' + encodedContext;
       microsoftTeams.executeDeepLink(taskItemUrl);
     } 
-    module.exports = opendeeplink;
+    window.opendeeplink = opendeeplink;
 
 })();
