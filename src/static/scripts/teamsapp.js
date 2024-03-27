@@ -27,7 +27,7 @@
     document.getElementById("v1subentityid").innerHTML = "is " + subEntityId;
     }
 
-    function updateDeeplink() {
+    function updatedeeplink() {
       var encodedWebUrl = encodeURIComponent('https://tasklist.example.com/123/456&label=Task 456');
       var subEntityIdvalue = document.getElementById('subEntityId').value;
       var encodedContext = encodeURIComponent(JSON.stringify({"subEntityId": subEntityIdvalue}));
@@ -45,7 +45,7 @@
           document.getElementById('deeplink').appendChild(a);
           }
     }
-    module.exports = updateDeeplink;
+    module.exports = updatedeeplink;
 
     function opendeeplink() {
       var encodedWebUrl = encodeURIComponent('https://tasklist.example.com/123/456&label=Task 456');
