@@ -11,22 +11,6 @@
     microsoftTeams.getContext((context) => {
       updatev1(context.entityId, context.subEntityId);
     });
-
-    var encodedWebUrl = encodeURIComponent('https://tasklist.example.com/123/456&label=Task 456');
-      var encodedContext = encodeURIComponent(JSON.stringify({"subEntityId": "task456"}));
-      var appid = document.getElementById('appid').value;
-      if (!appid) {
-       console.log('No App Id. Refresh Page')
-       document.getElementById('deeplink').innerHTML = 'No App Id. Refresh Page';
-      } 
-      else {
-      var taskItemUrl = 'https://teams.microsoft.com/l/entity/' + appid + 'index0?webUrl=' + encodedWebUrl + '&context=' + encodedContext;
-      var a= document.createElement('a');
-      a.href = taskItemUrl;
-      a.target = '_blank';;
-      a.textContent = taskItemUrl;
-      document.getElementById('deeplink').appendChild(a);
-      }
   });
 
   function updatev2(hubName, pageid, subpageid) {
@@ -44,6 +28,25 @@
     console.log("v1subentityid: " + subEntityId); 
     document.getElementById("v1subentityid").innerHTML = "is " + subEntityId;
     }
+
+    function updateDeeplink() {
+      var encodedWebUrl = encodeURIComponent('https://tasklist.example.com/123/456&label=Task 456');
+          var encodedContext = encodeURIComponent(JSON.stringify({"subEntityId": "task456"}));
+          var appid = document.getElementById('appid').value;
+          if (!appid) {
+           console.log('No App Id. Refresh Page')
+           document.getElementById('deeplink').innerHTML = 'Specify an App id and then run update deeplink';
+          } 
+          else {
+          var taskItemUrl = 'https://teams.microsoft.com/l/entity/' + appid + 'index0?webUrl=' + encodedWebUrl + '&context=' + encodedContext;
+          var a= document.createElement('a');
+          a.href = taskItemUrl;
+          a.target = '_blank';;
+          a.textContent = taskItemUrl;
+          document.getElementById('deeplink').appendChild(a);
+          }
+    }
+    module.exports = updateDeeplink;
 
     function deeplink() {
       var encodedWebUrl = encodeURIComponent('https://tasklist.example.com/123/456&label=Task 456');
