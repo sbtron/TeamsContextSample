@@ -10,17 +10,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="/static/scripts/teamsapp.js"></script>
-    <script>
-      function deeplink() {
-        var encodedWebUrl = encodeURIComponent('https://tasklist.example.com/123/456&label=Task 456');
-        var encodedContext = encodeURIComponent(JSON.stringify({"subEntityId": "task456"}));
-        // deployed appid
-        var appid = "ee74ce78-43a4-4096-8f5f-978533ddf46b"
-        var taskItemUrl = 'https://teams.microsoft.com/l/entity/' + appid + '/index0?webUrl=' + encodedWebUrl + '&context=' + encodedContext;
-        microsoftTeams.executeDeepLink(taskItemUrl);
-      }            
-    </script>
-    
     <title>Microsoft Teams Tab</title>
   </head>
 
@@ -28,6 +17,9 @@
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div>
       <h1>Hello, World</h1>
+      <form>
+        <input type="text" id="appid" value="ee74ce78-43a4-4096-8f5f-978533ddf46b">
+      </form>
       <button onclick="deeplink()">Navigate using subEntityId</button>
       <br/>
       <p id="deeplink">Deeplink: </p>
