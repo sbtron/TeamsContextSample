@@ -10,6 +10,19 @@
       crossorigin="anonymous"
     ></script>
     <script src="/static/scripts/teamsapp.js"></script>
+    <script>
+      function deeplink() {
+        var encodedWebUrl = encodeURIComponent('https://tasklist.example.com/123/456&label=Task 456');
+        var encodedContext = encodeURIComponent(JSON.stringify({"subEntityId": "task456"}));
+        // deployed appid
+        var appid = "2a4dc7a6-960d-4527-b905-a0e119db87bb"
+        // local appid
+        //var appid = "1727cbc7-eddc-4053-b48e-2989b6f4d78f"
+        var taskItemUrl = 'https://teams.microsoft.com/l/entity/' + appid + '/index0?webUrl=' + encodedWebUrl + '&context=' + encodedContext;
+        microsoftTeams.executeDeepLink(taskItemUrl);
+      }            
+    </script>
+    
     <title>Microsoft Teams Tab</title>
   </head>
 
@@ -17,13 +30,31 @@
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div>
       <h1>Hello, World</h1>
+      <button onclick="deeplink()">Navigate using subEntityId</button>
+      <br/>
+      <p id="deeplink">Deeplink: </p>
+      <br/>
       <span>
         <p>Your app is running</p>
         <p id="hubState"></p>
+        <br/>
+        <p>V2 Context PageID</p>
+        <p id="v2pageid"></p>
+        <br/>
+        <p>V2 Context SubPageID</p>
+        <p id="v2subpageid"></p>
+        <br/>
+        <br/>
+        <p>V1 Context PageID (deprecated only here for backcompat)</p>
+        <p id="v1entityid"></p>
+        <br/>
+        <p>V1 Context SubPageID (deprecated only here for backcompat)</p>
+        <p id="v1subentityid"></p>
       </span>
     </div>
+    </div>
     <script type="text/javascript">
-      microsoftTeams.appInitialization.notifySuccess();
+      //microsoftTeams.appInitialization.notifySuccess();
     </script>
   </body>
 </html>
