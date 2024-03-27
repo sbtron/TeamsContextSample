@@ -17,14 +17,16 @@
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div>
       <h1>Hello, World</h1>
+      <p>Specify this apps appid (if its different from the default)</p>
       <form>
         <input type="text" id="appid" value="ee74ce78-43a4-4096-8f5f-978533ddf46b">
-      
-      <button onclick="deeplink()">Navigate using subEntityId</button>
+        <br/>
+        <input type="text" id="specifysubentityid" value="task1234">
+        <button onclick="opendeeplink()">Navigate to this app using the subEntityID</button>
       <br/>
       <p id="deeplink">Deeplink: </p>
       <br/>
-      <button onclick="updatedeeplink()">Update deeplink with new appid</button>
+      <button onclick="updatedeeplink()">Update deeplink with new appid and subentityid</button>
     </form>
       <span>
         <p>Your app is running</p>

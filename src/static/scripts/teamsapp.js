@@ -14,8 +14,6 @@
   });
 
   function updatev2(hubName, pageid, subpageid) {
-    console.log("v2pageid: " + pageid);
-    console.log("v2subpageid: " + subpageid); 
     if (hubName) {
       document.getElementById("hubState").innerHTML = "in " + hubName;
       document.getElementById("v2pageid").innerHTML = "is " + pageid;
@@ -31,7 +29,8 @@
 
     function updateDeeplink() {
       var encodedWebUrl = encodeURIComponent('https://tasklist.example.com/123/456&label=Task 456');
-          var encodedContext = encodeURIComponent(JSON.stringify({"subEntityId": "task456"}));
+      var subEntityIdvalue = document.getElementById('subEntityId').value;
+      var encodedContext = encodeURIComponent(JSON.stringify({"subEntityId": subEntityIdvalue}));
           var appid = document.getElementById('appid').value;
           if (!appid) {
            console.log('No App Id. Refresh Page')
@@ -48,9 +47,10 @@
     }
     module.exports = updateDeeplink;
 
-    function deeplink() {
+    function opendeeplink() {
       var encodedWebUrl = encodeURIComponent('https://tasklist.example.com/123/456&label=Task 456');
-      var encodedContext = encodeURIComponent(JSON.stringify({"subEntityId": "task456"}));
+      var subEntityIdvalue = document.getElementById('subEntityId').value;
+      var encodedContext = encodeURIComponent(JSON.stringify({"subEntityId": subEntityIdvalue}));
       var appid = document.getElementById('appid').value;
       if (!appid) {
         alert('Please provide an appid');
@@ -59,6 +59,6 @@
       var taskItemUrl = 'https://teams.microsoft.com/l/entity/' + appid + '/index0?webUrl=' + encodedWebUrl + '&context=' + encodedContext;
       microsoftTeams.executeDeepLink(taskItemUrl);
     } 
-    module.exports = deeplink;
+    module.exports = opendeeplink;
 
 })();
