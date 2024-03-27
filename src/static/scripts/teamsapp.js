@@ -34,11 +34,11 @@
       var encodedContext = encodeURIComponent(JSON.stringify({"subEntityId": subEntityIdvalue}));
           var appid = document.getElementById('appid').value;
           if (!appid) {
-           console.log('No App Id. Refresh Page')
+           console.log('No App Id')
            document.getElementById('deeplink').innerHTML = 'Specify an App id and then run update deeplink';
           } 
           else {
-          var taskItemUrl = 'https://teams.microsoft.com/l/entity/' + appid + 'index0?webUrl=' + encodedWebUrl + '&context=' + encodedContext;
+          var taskItemUrl = 'https://teams.microsoft.com/l/entity/' + appid + '/index0?webUrl=' + encodedWebUrl + '&context=' + encodedContext;
           var a= document.createElement('a');
           a.href = taskItemUrl;
           a.target = '_blank';;
