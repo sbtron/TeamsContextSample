@@ -20,3 +20,4 @@ appPackage/build
 .env
 .deployment
 package-lock.json
+env/.env.dev

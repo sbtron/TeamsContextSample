@@ -14,7 +14,9 @@
 
     var encodedWebUrl = encodeURIComponent('https://tasklist.example.com/123/456&label=Task 456');
       var encodedContext = encodeURIComponent(JSON.stringify({"subEntityId": "task456"}));
-      var taskItemUrl = 'https://teams.microsoft.com/l/entity/2a4dc7a6-960d-4527-b905-a0e119db87bb/index0?webUrl=' + encodedWebUrl + '&context=' + encodedContext;
+      // deployed appid
+      var appid = "ee74ce78-43a4-4096-8f5f-978533ddf46b"
+      var taskItemUrl = 'https://teams.microsoft.com/l/entity/' + appid + 'index0?webUrl=' + encodedWebUrl + '&context=' + encodedContext;
       var a= document.createElement('a');
       a.href = taskItemUrl;
       a.target = '_blank';;
